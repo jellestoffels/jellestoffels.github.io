@@ -130,16 +130,17 @@
 
         // Fetch the images from the folder
         const images = [];
-        for (let i = 1; i <= 50; i++) {
+        for (let i = 1; i <= 60; i++) {
             const imageName = `jelle-stoffels-${i}.jpg`;
             images.push(imageName);
         }
 
         // Shuffle the images array
         images.sort(() => Math.random() - 0.5);
+        const selectedImages = images.slice(0, 30);
 
         // Generate portfolio items for each image
-        images.forEach(image => {
+        selectedImages.forEach(image => {
             const item = document.createElement('div');
             item.className = 'portfolio-item';
             const link = document.createElement('a');
