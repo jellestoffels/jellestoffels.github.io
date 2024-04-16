@@ -101,7 +101,7 @@
 <script>
     function generatePortfolioItems() {
         const grid = document.querySelector('.portfolio-grid');
-        const imageFolder = '/workspaces/jellestoffels.github.io/images'; // Replace with the path to your images folder
+        const imageFolder = 'https://jellestoffels.github.io/images'; // Replace with the path to your images folder
 
         // Fetch the images from the folder
         const images = [];
@@ -109,7 +109,7 @@
             const imageName = `jelle-stoffels-${i}.jpg`;
             images.push(imageName);
         }
-        
+
         // Generate portfolio items for each image
         images.forEach(image => {
             const item = document.createElement('div');
