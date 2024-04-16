@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Theme Portfolio</title>
+    <title>Stoff Light</title>
     <style>
         :root {
             --background-color: #1c1c1e;
@@ -82,8 +82,10 @@
 
 <header>
     <div class="profile-pic"></div>
-    <h1>My Portfolio</h1>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <h1>
+        Stoff Light
+    </h1>
+    <p class="description">Light Designer, Stage Designer, Light Operator, Music Producer, DJ</p>
 </header>
 
 <div class="portfolio-grid">
@@ -114,7 +116,10 @@
         images.forEach(image => {
             const item = document.createElement('div');
             item.className = 'portfolio-item';
-            item.innerHTML = `<img src="${imageFolder}/${image}" alt="Portfolio Item">`;
+            const link = document.createElement('a');
+            link.href = `${imageFolder}/${image}`;
+            link.innerHTML = `<img src="${imageFolder}/${image}" alt="${image}" style="width: 100%; height: auto;">`;
+            item.appendChild(link);
             grid.appendChild(item);
         });
     }
