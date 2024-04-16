@@ -113,6 +113,9 @@
             images.push(imageName);
         }
 
+        // Shuffle the images array
+        images.sort(() => Math.random() - 0.5);
+
         // Generate portfolio items for each image
         images.forEach(image => {
             const item = document.createElement('div');
