@@ -101,12 +101,23 @@
 <script>
     function generatePortfolioItems() {
         const grid = document.querySelector('.portfolio-grid');
-        for (let i = 0; i < 9; i++) { // Generating 9 items as an example, you can adjust as needed
-            const item = document.createElement('div');
-            item.className = 'portfolio-item';
-            item.innerHTML = `<img src="https://picsum.photos/1000/1000?random=${Math.floor(Math.random() * 1000)}" alt="Portfolio Item">`;
-            grid.appendChild(item);
-        }
+        const imageFolder = '/workspaces/jellestoffels.github.io/images'; // Replace with the path to your images folder
+
+        // Fetch the images from the folder
+        fetch(`${imageFolder}/images.json`)
+            .then(response => response.json())
+            .then(images => {
+                // Generate portfolio items for each image
+                images.forEach(image => {
+                    const item = document.createElement('div');
+                    item.className = 'portfolio-item';
+                    item.innerHTML = `<img src="${imageFolder}/${image}" alt="Portfolio Item">`;
+                    grid.appendChild(item);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching images:', error);
+            });
     }
 
     // Call the function when the page loads
