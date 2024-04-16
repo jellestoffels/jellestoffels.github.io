@@ -104,12 +104,12 @@
         const imageFolder = '/workspaces/jellestoffels.github.io/images'; // Replace with the path to your images folder
 
         // Fetch the images from the folder
-        const images = ['jelle-stoffels-1.jpg', 'jelle-stoffels-2.jpg', 'jelle-stoffels-3.jpg']; // Replace with the actual image file names
         const images = [];
         for (let i = 1; i <= 50; i++) {
             const imageName = `jelle-stoffels-${i}.jpg`;
             images.push(imageName);
         }
+        
         // Generate portfolio items for each image
         images.forEach(image => {
             const item = document.createElement('div');
