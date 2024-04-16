@@ -119,7 +119,7 @@
             item.className = 'portfolio-item';
             const link = document.createElement('a');
             link.href = `${imageFolder}/${image}`;
-            link.innerHTML = `<img src="${imageFolder}/${image}" alt="${image}" style="width: 100%; height: auto;">`;
+            link.innerHTML = `<img src="${imageFolder}/${image}" alt="${image}" style="width: 100%; height: 100%; object-fit: cover;">`;
             item.appendChild(link);
             grid.appendChild(item);
         });
