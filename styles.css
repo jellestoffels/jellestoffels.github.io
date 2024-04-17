@@ -61,6 +61,12 @@ footer {
     background-color: var(--footer-background-color);
     transition: background-color 0.3s ease;
 }
+a {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--footer-background-color);
+    transition: background-color 0.3s ease;
+}
 .social-links a {
     margin: 0 24px;
     text-decoration: none;
