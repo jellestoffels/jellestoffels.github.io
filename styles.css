@@ -86,13 +86,3 @@ a:visited {
 .social-links a:hover {
     color: #fff;
 }
-
-@media screen and (max-width: 800px) {
-    iframe {
-        width: 100%;
-    }
-
-    .social-links img {
-        width: 40px;
-    }
-}
