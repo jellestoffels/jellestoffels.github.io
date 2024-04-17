@@ -78,6 +78,9 @@ a:visited {
     color: var(--accent-color);
 }
 .social-links a {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 24px;
     text-decoration: none;
     color: var(--accent-color);
