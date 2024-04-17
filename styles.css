@@ -66,6 +66,16 @@ a {
     padding: 20px;
     background-color: var(--footer-background-color);
     transition: background-color 0.3s ease;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+a:visited {
+    color: var(--accent-color);
 }
 .social-links a {
     margin: 0 24px;
