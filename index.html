@@ -161,6 +161,44 @@
         });
     }
 
+    // Get all image elements
+    const images = Array.from(document.querySelectorAll('.portfolio-grid img'));
+
+    // Function to create a new image page
+    function createImagePage(imgElement) {
+        // Get the image source and generate a description
+        const image = {
+            src: imgElement.src,
+            description: 'Description for ' + imgElement.alt
+        };
+
+        // Create a new window or tab
+        const win = window.open('', '_blank');
+
+        // Write the HTML for the new page
+        win.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                    <title>Image Page</title>
+                    <link rel="stylesheet" href="styles.css">
+            </head>
+            <body>
+                    <div class="image-container">
+                            <img src="${image.src}" alt="${image.description}">
+                            <p class="image-description">${image.description}</p>
+                    </div>
+            </body>
+            </html>
+        `);
+
+        // Close the document writing stream
+        win.document.close();
+    }
+
+    // Create a new image page for each image
+    images.forEach(createImagePage);
+
     // Call the function when the page loads
     window.addEventListener('DOMContentLoaded', generatePortfolioItems);
 </script>
