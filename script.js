@@ -4,8 +4,8 @@ function generatePortfolioItems() {
 
     // Fetch the images from the folder
     const images = [];
-    for (let i = 1; i <= 89; i++) {
-        const imageName = `jelle-stoffels-${i}.jpg`;
+    for (let i = 1; i <= 50; i++) {
+        const imageName = `jelle-stoffels (${i}).jpg`;
         images.push(imageName);
     }
 
