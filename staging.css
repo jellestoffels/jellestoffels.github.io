@@ -2,8 +2,8 @@
     --background-color: #1c1c1e;
     --text-color: #a9a9a9; /* Light gray text */
     --accent-color: #ffffff; /* White accent color */
+    --accent-hover-color: rgb(147, 189, 164); /* Light green on hover */
     --header-background-color: #2c2c2e;
-    --footer-background-color: #2c2c2e;
 }
 
 body {
@@ -14,6 +14,23 @@ body {
     padding: 0;
     text-align: center;
     transition: background-color 0.3s ease;
+
+    /* Background gradient animation */
+    background: linear-gradient(-45deg, #222222, #444444, #222222, #444444);
+    background-size: 400% 400%;
+    animation: gradientAnimation 30s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header {
@@ -39,6 +56,7 @@ h1 {
     font-size: 28px;
     font-weight: bold;
     letter-spacing: 2px;
+    color: var(--accent-color);
 }
 
 .description {
@@ -47,30 +65,22 @@ h1 {
     opacity: 0.8;
 }
 
-footer {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: var(--footer-background-color);
-    transition: background-color 0.3s ease;
-}
-
 .social-links a {
-    margin: 0 24px;
+    margin: 0 12px;
     text-decoration: none;
     color: var(--accent-color);
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #fff;
+    color: var(--accent-hover-color);
 }
 
 .social-links img {
     width: 25px;
-    margin-right: 20px;
+    vertical-align: middle;
 }
 
-/* Styles for collapsible sections */
 .sections {
     width: 100%;
     padding: 0;
@@ -91,65 +101,74 @@ footer {
     color: var(--accent-color);
     list-style: none;
     outline: none;
+    position: relative;
+}
+
+.section summary::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.section[open] summary::after {
+    transform: rotate(180deg);
 }
 
 .section[open] summary {
-    background-color: var(--footer-background-color);
+    background-color: var(--header-background-color);
 }
 
 .section-content {
-    padding: 20px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    animation: foldOut 0.2s ease;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
 }
 
-@keyframes foldOut {
-    from {
-        opacity: 0;
-        max-height: 0;
-    }
-    to {
-        opacity: 1;
-        max-height: 1000px;
-    }
+.section[open] .section-content {
+    max-height: 2000px; /* Set a large enough value */
 }
 
 .section-content p {
     margin: 0 0 10px;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-/* Artist names styling */
 .artist-names {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    padding: 20px;
+    background-color: var(--background-color);
 }
 
 .artist-name {
     font-weight: bold;
-    margin: 10px 0;
-    flex: 1 0 100%;
-    text-align: center;
+    margin: 10px;
     font-size: 24px;
+    text-align: center;
 }
 
 .artist-name a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .artist-name a:hover {
-    color: #fff;
+    color: var(--accent-hover-color);
 }
 
-/* Portfolio grid */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
-    padding: 20px 0;
+    padding: 20px;
+    background-color: var(--background-color);
 }
 
 .portfolio-item img {
@@ -164,7 +183,6 @@ footer {
     transform: scale(1.05);
 }
 
-/* Embedded content styling */
 .embed-container {
     position: relative;
     overflow: hidden;
@@ -180,12 +198,16 @@ footer {
     height: 100%;
 }
 
-/* Text links */
 .text-links a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .text-links a:hover {
-    color: #fff;
+    color: var(--accent-hover-color);
+}
+
+a:hover {
+    color: var(--accent-hover-color);
 }

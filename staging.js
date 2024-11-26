@@ -1,9 +1,3 @@
-// Google Analytics Initialization
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-3SHPJ04PME');
-
 // Portfolio Items Generation
 function generatePortfolioItems() {
     const grid = document.querySelector('.portfolio-grid');
@@ -34,4 +28,19 @@ function generatePortfolioItems() {
 }
 
 // Initialize portfolio items on page load
-window.addEventListener('DOMContentLoaded', generatePortfolioItems);
+window.addEventListener('DOMContentLoaded', () => {
+    generatePortfolioItems();
+
+    // Fix for <details> animation
+    const detailsElements = document.querySelectorAll('details.section');
+    detailsElements.forEach(details => {
+        details.addEventListener('toggle', event => {
+            const content = details.querySelector('.section-content');
+            if (details.open) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                content.style.maxHeight = null;
+            }
+        });
+    });
+});
